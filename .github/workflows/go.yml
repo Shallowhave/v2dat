@@ -20,3 +20,10 @@ jobs:
       - name: Build for 64-bit
         run: |
           GOARCH=amd64 go build -o v2dat
+          
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: v2dat
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
